@@ -51,14 +51,15 @@ function App() {
     { id: "venue", label: "Venue" },
     { id: "committees", label: "Committees" },
     { id: "abstracts", label: "Abstracts" },
+    { id: "registration", label: "Registration" },
     { id: "contact", label: "Contact" },
   ];
 
   const organisingTeam = [
-    "Alessandro Indelicato – Chair – ULPGC",
-    "Juan Carlos Martín – ULPGC",
-    "Paula Chirino – ULPGC",
-    "Fernando Medina – ULPGC",
+    "Alessandro Indelicato – Chair – Universidad de Las Palmas de Gran Canaria (ULPGC)",
+    "Juan Carlos Martín – Universidad de Las Palmas de Gran Canaria (ULPGC)",
+    "Paula Chirino – Universidad de Las Palmas de Gran Canaria (ULPGC)",
+    "Fernando Medina – Universidad de Las Palmas de Gran Canaria (ULPGC)",
   ];
 
   const scientificTeam = [
@@ -173,9 +174,9 @@ function App() {
 
                   <button
                     className="btn-secondary"
-                    onClick={() => setActiveTab("topics")}
+                    onClick={() => setActiveTab("registration")}
                   >
-                    Explore Topics
+                    Registration & Fees
                   </button>
                 </div>
               </div>
@@ -327,7 +328,11 @@ function App() {
               <div className="card text-card">
                 <h3>Why here?</h3>
                 <p>
-                  The city represents a strategic and inspiring hub for academic exchange, fostering high-level networking and 					interdisciplinary dialogue, while offering a unique geographical and symbolic lens through which to examine the 			evolving challenges of migration in today’s global context.
+                  The city represents a strategic and inspiring hub for academic
+                  exchange, fostering high-level networking and interdisciplinary
+                  dialogue, while offering a unique geographical and symbolic
+                  lens through which to examine the evolving challenges of
+                  migration in today’s global context.
                 </p>
               </div>
 
@@ -446,6 +451,100 @@ function App() {
 
                   {status && <p className="form-status">{status}</p>}
                 </form>
+              </div>
+            </div>
+          </section>
+        );
+
+      case "registration":
+        return (
+          <section className="section registration-section">
+            <div className="section-heading center">
+              <div className="kicker">Participation</div>
+              <h2>Registration & Fees</h2>
+              <p className="section-intro registration-intro">
+                Registration is now open for the conference. Participants are
+                invited to complete the registration form and proceed with the
+                payment within the corresponding registration period.
+              </p>
+            </div>
+
+            <div className="registration-box">
+              <h3>Registration Categories</h3>
+
+              <div className="table-wrapper">
+                <table className="fees-table">
+                  <thead>
+                    <tr>
+                      <th>Category</th>
+                      <th>Fee</th>
+                      <th>Deadline</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Early Bird Registration</td>
+                      <td>€130</td>
+                      <td>Until 30 September 2026</td>
+                    </tr>
+                    <tr>
+                      <td>Regular Registration</td>
+                      <td>€150</td>
+                      <td>1 October – 15 November 2026</td>
+                    </tr>
+                    <tr>
+                      <td>Late Registration</td>
+                      <td>€170</td>
+                      <td>From 16 November 2026</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <p className="included">
+                <strong>The registration fee includes:</strong> access to all
+                conference sessions, conference materials, coffee breaks, and
+                the social dinner.
+              </p>
+
+              <p className="note">
+                Please note that registration will only be considered valid once
+                both the registration form has been completed and the payment
+                has been received.
+              </p>
+
+              <div className="registration-buttons">
+                <a
+                  href="https://forms.gle/TU-LINK-DE-GOOGLE-FORM"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn-primary registration-link"
+                >
+                  Register Now
+                </a>
+
+                <a
+                  href="https://TU-LINK-DE-PAGO"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn-secondary registration-link"
+                >
+                  Proceed to Payment
+                </a>
+              </div>
+
+              <div className="payment-info">
+                <h3>Payment Information</h3>
+                <p>
+                  Payment should be completed after submitting the registration
+                  form. Participants are kindly requested to indicate their full
+                  name in the payment reference and upload the proof of payment
+                  in the registration form.
+                </p>
+                <p>
+                  Further payment details will be provided upon registration or
+                  through the payment link above.
+                </p>
               </div>
             </div>
           </section>
