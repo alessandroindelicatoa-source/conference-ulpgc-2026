@@ -4,8 +4,20 @@ import contactImage from "./assets/yo.jpeg";
 import lpa1 from "./assets/LPA.jpeg";
 import lpa2 from "./assets/LPA2.jpeg";
 
+const APPS_SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbyU81W0UfKwZrUEHY3QNRge6RpUp7u7NmH-MlQFHZAUZ4p96P8DwA_WmkGlavxM5awN/exec";
+
 function App() {
   const [activeTab, setActiveTab] = useState("home");
+  const [status, setStatus] = useState("");
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    affiliation: "",
+    title: "",
+    keywords: "",
+    abstract: "",
+  });
 
   const tabs = [
     { id: "home", label: "Home" },
@@ -44,6 +56,51 @@ function App() {
     "Data science, econometrics and computational approaches",
   ];
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!form.name || !form.email || !form.affiliation || !form.title || !form.abstract) {
+      setStatus("Please complete all required fields.");
+      return;
+    }
+
+    try {
+      setStatus("Sending submission...");
+
+      const response = await fetch(APPS_SCRIPT_URL, {
+        method: "POST",
+        mode: "cors",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8",
+        },
+        body: JSON.stringify(form),
+      });
+
+      const result = await response.json();
+
+      if (result.status === "success") {
+        setStatus("Abstract submitted successfully.");
+        setForm({
+          name: "",
+          email: "",
+          affiliation: "",
+          title: "",
+          keywords: "",
+          abstract: "",
+        });
+      } else {
+        setStatus("Submission failed. Please try again.");
+      }
+    } catch (error) {
+      setStatus("Connection error. Check Apps Script deployment settings.");
+    }
+  };
+
   const renderContent = () => {
     switch (activeTab) {
       case "home":
@@ -54,7 +111,7 @@ function App() {
                 <div className="eyebrow">ERUA Workshop · ULPGC · Las Palmas · 2026</div>
 
                 <h1>
-                  
+                  Climate Change, Environmental Migration and Sustainable Development
                 </h1>
 
                 <p className="lead">
@@ -299,16 +356,61 @@ function App() {
 
               <div className="card form-card">
                 <h3>Abstract Form</h3>
-                <form className="form">
-                  <input type="text" placeholder="Full name" />
-                  <input type="email" placeholder="Email" />
-                  <input type="text" placeholder="Affiliation" />
-                  <input type="text" placeholder="Title of abstract" />
-                  <input type="text" placeholder="Keywords" />
-                  <textarea rows="7" placeholder="Paste your abstract here"></textarea>
-                  <button type="button" className="btn-primary">
+
+                <form className="form" onSubmit={handleSubmit}>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Full name"
+                    value={form.name}
+                    onChange={handleChange}
+                  />
+
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    value={form.email}
+                    onChange={handleChange}
+                  />
+
+                  <input
+                    type="text"
+                    name="affiliation"
+                    placeholder="Affiliation"
+                    value={form.affiliation}
+                    onChange={handleChange}
+                  />
+
+                  <input
+                    type="text"
+                    name="title"
+                    placeholder="Title of abstract"
+                    value={form.title}
+                    onChange={handleChange}
+                  />
+
+                  <input
+                    type="text"
+                    name="keywords"
+                    placeholder="Keywords"
+                    value={form.keywords}
+                    onChange={handleChange}
+                  />
+
+                  <textarea
+                    rows="7"
+                    name="abstract"
+                    placeholder="Paste your abstract here"
+                    value={form.abstract}
+                    onChange={handleChange}
+                  ></textarea>
+
+                  <button type="submit" className="btn-primary">
                     Submit Abstract
                   </button>
+
+                  {status && <p className="form-status">{status}</p>}
                 </form>
               </div>
             </div>
@@ -360,7 +462,9 @@ function App() {
       <header className="topbar-pro">
         <div className="container topbar-content">
           <div>
-            <div className="site-title">Migration, Climate and Social Transformation Conference </div>
+            <div className="site-title">
+              Migration, Climate and Social Transformation Conference
+            </div>
             <div className="site-subtitle">
               Climate Change, Environmental Migration and Sustainable Development
             </div>
