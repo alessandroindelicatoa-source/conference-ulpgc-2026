@@ -120,15 +120,8 @@ a:hover {
   text-transform: uppercase;
 }
 
-.hero-copy h1 {
-  margin: 0;
-  color: #1e3a5f;
-  font-size: clamp(2.4rem, 4vw, 4rem);
-  line-height: 1.08;
-}
-
 .lead {
-  margin-top: 20px;
+  margin-top: 0;
   color: #4b5563;
   font-size: 1.1rem;
   line-height: 1.8;
@@ -139,6 +132,35 @@ a:hover {
   color: #6b7280;
   font-size: 1rem;
   line-height: 1.8;
+}
+
+.countdown {
+  display: flex;
+  gap: 18px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.count-item {
+  background: #fff8dc;
+  border: 1px solid #e6d3a3;
+  padding: 12px 18px;
+  border-radius: 10px;
+  text-align: center;
+  min-width: 80px;
+}
+
+.count-item span {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1e3a5f;
+}
+
+.count-item small {
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  color: #8a7a4f;
 }
 
 .hero-actions {
@@ -394,9 +416,20 @@ a:hover {
 
 .elegant-list {
   margin: 0;
-  padding-left: 20px;
   color: #4b5563;
   line-height: 1.8;
+}
+
+.left-list {
+  text-align: left;
+  padding-left: 22px;
+  margin-top: 12px;
+}
+
+.left-list li {
+  text-align: left;
+  margin-bottom: 12px;
+  line-height: 1.6;
 }
 
 .form {
@@ -419,6 +452,12 @@ a:hover {
 
 .form textarea {
   resize: vertical;
+}
+
+.form-status {
+  margin: 6px 0 0;
+  color: #1e3a5f;
+  font-size: 0.95rem;
 }
 
 .contact-layout {
@@ -464,10 +503,6 @@ a:hover {
     padding: 30px 24px;
   }
 
-  .hero-copy h1 {
-    font-size: 2.4rem;
-  }
-
   .container {
     width: min(1180px, calc(100% - 24px));
   }
@@ -475,10 +510,4 @@ a:hover {
   .site-title {
     font-size: 1.6rem;
   }
-}
-
-.form-status {
-  margin: 6px 0 0;
-  color: #1e3a5f;
-  font-size: 0.95rem;
 }

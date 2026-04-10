@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import contactImage from "./assets/yo.jpeg";
 import lpa1 from "./assets/LPA.jpeg";
@@ -18,6 +18,32 @@ function App() {
     keywords: "",
     abstract: "",
   });
+
+  const calculateTimeLeft = () => {
+    const difference = new Date("2026-12-07T09:00:00") - new Date();
+
+    let timeLeft = {};
+
+    if (difference > 0) {
+      timeLeft = {
+        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((difference / 1000 / 60) % 60),
+      };
+    }
+
+    return timeLeft;
+  };
+
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
 
   const tabs = [
     { id: "home", label: "Home" },
@@ -110,7 +136,6 @@ function App() {
               <div className="hero-copy">
                 <div className="eyebrow">ERUA Workshop · ULPGC · Las Palmas · 2026</div>
 
-
                 <p className="lead">
                   A high-level international conference dedicated to one of the
                   most pressing challenges of our time: the intersection between
@@ -122,6 +147,21 @@ function App() {
                   practitioners, the conference aims to promote interdisciplinary
                   dialogue and generate evidence-based knowledge.
                 </p>
+
+                <div className="countdown">
+                  <div className="count-item">
+                    <span>{timeLeft.days || 0}</span>
+                    <small>Days</small>
+                  </div>
+                  <div className="count-item">
+                    <span>{timeLeft.hours || 0}</span>
+                    <small>Hours</small>
+                  </div>
+                  <div className="count-item">
+                    <span>{timeLeft.minutes || 0}</span>
+                    <small>Minutes</small>
+                  </div>
+                </div>
 
                 <div className="hero-actions">
                   <button
@@ -145,9 +185,9 @@ function App() {
                   <div className="panel-title">Conference Information</div>
 
                   <div className="info-item">
-  			<span>Dates</span>
-  			<strong>7–8 December 2026</strong>
-		</div>
+                    <span>Dates</span>
+                    <strong>7–8 December 2026</strong>
+                  </div>
 
                   <div className="info-item">
                     <span>Venue</span>
@@ -343,12 +383,12 @@ function App() {
               <div className="card text-card">
                 <h3>Submission Guidelines</h3>
                 <ul className="elegant-list left-list">
-  		<li>Maximum 300 words</li>
-  		<li>Language: English</li>
-  		<li>Include title, authors, affiliations and keywords</li>
-  		<li>Deadline: 15 June 2026</li>
-  		<li>Notification of acceptance: 30 June 2026</li>
-		</ul>
+                  <li>Maximum 300 words</li>
+                  <li>Language: English</li>
+                  <li>Include title, authors, affiliations and keywords</li>
+                  <li>Deadline: 15 June 2026</li>
+                  <li>Notification of acceptance: 30 June 2026</li>
+                </ul>
               </div>
 
               <div className="card form-card">
@@ -463,7 +503,7 @@ function App() {
               Migration, Climate and Social Transformation Conference
             </div>
             <div className="site-subtitle">
-              
+              Climate Change, Environmental Migration and Sustainable Development
             </div>
           </div>
         </div>
