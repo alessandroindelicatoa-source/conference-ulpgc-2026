@@ -55,10 +55,10 @@ function App() {
   ];
 
   const organisingTeam = [
-    "Alessandro Indelicato – Chair – Universidad de Las Palmas de Gran Canaria (ULPGC)",
-    "Juan Carlos Martín – Universidad de Las Palmas de Gran Canaria (ULPGC)",
-    "Paula Chirino – Universidad de Las Palmas de Gran Canaria (ULPGC)",
-    "Fernando Medina – Universidad de Las Palmas de Gran Canaria (ULPGC)",
+    "Alessandro Indelicato – Chair – ULPGC",
+    "Juan Carlos Martín – ULPGC",
+    "Paula Chirino – ULPGC",
+    "Fernando Medina – ULPGC",
   ];
 
   const scientificTeam = [
@@ -327,10 +327,7 @@ function App() {
               <div className="card text-card">
                 <h3>Why here?</h3>
                 <p>
-                  The city provides excellent conditions for scholarly exchange,
-                  networking and interdisciplinary dialogue, while also offering
-                  a meaningful geographical and symbolic context for discussing
-                  climate-related migration.
+                  The city represents a strategic and inspiring hub for academic exchange, fostering high-level networking and 					interdisciplinary dialogue, while offering a unique geographical and symbolic lens through which to examine the 			evolving challenges of migration in today’s global context.
                 </p>
               </div>
 
