@@ -4,12 +4,8 @@ import contactImage from "./assets/yo.jpeg";
 import lpa1 from "./assets/LPA.jpeg";
 import lpa2 from "./assets/LPA2.jpeg";
 
-const APPS_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbyU81W0UfKwZrUEHY3QNRge6RpUp7u7NmH-MlQFHZAUZ4p96P8DwA_WmkGlavxM5awN/exec";
-
 function App() {
   const [activeTab, setActiveTab] = useState("home");
-  const [status, setStatus] = useState("");
 
   const calculateTimeLeft = () => {
     const difference = new Date("2026-12-07T09:00:00") - new Date();
@@ -22,7 +18,6 @@ function App() {
         minutes: Math.floor((difference / 1000 / 60) % 60),
       };
     }
-
     return timeLeft;
   };
 
@@ -32,7 +27,6 @@ function App() {
     const timer = setInterval(() => {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
-
     return () => clearInterval(timer);
   }, []);
 
@@ -46,6 +40,19 @@ function App() {
     { id: "contact", label: "Contact" },
   ];
 
+  const topics = [
+    "Climate change and human mobility",
+    "Environmental and climate-induced migration",
+    "Forced displacement and adaptation strategies",
+    "Migration governance and policy frameworks",
+    "Sustainable development and resilience",
+    "Socioeconomic impacts of migration",
+    "Migration, religion and cultural diversity",
+    "Public opinion and political discourse on migration",
+    "Urban and rural migration dynamics",
+    "Data science and econometric approaches",
+  ];
+
   const renderContent = () => {
     switch (activeTab) {
       case "home":
@@ -57,9 +64,8 @@ function App() {
               </div>
 
               <p className="lead">
-                A high-level international conference dedicated to the
-                intersection between climate change, human mobility and
-                sustainable development.
+                A high-level international conference on climate change,
+                migration and sustainable development.
               </p>
 
               <div className="countdown">
@@ -76,111 +82,116 @@ function App() {
                   <small>Minutes</small>
                 </div>
               </div>
-
-              <div className="hero-actions">
-                <button
-                  className="btn-primary"
-                  onClick={() => setActiveTab("abstracts")}
-                >
-                  Submit Abstract
-                </button>
-
-                <button
-                  className="btn-secondary"
-                  onClick={() => setActiveTab("registration")}
-                >
-                  Registration & Fees
-                </button>
-              </div>
             </div>
+          </section>
+        );
+
+      case "topics":
+        return (
+          <section className="section">
+            <h2>Conference Topics</h2>
+            <div className="grid two">
+              {topics.map((t, i) => (
+                <div className="card" key={i}>
+                  {t}
+                </div>
+              ))}
+            </div>
+          </section>
+        );
+
+      case "venue":
+        return (
+          <section className="section">
+            <h2>Venue</h2>
+            <div className="grid two">
+              <img src={lpa1} alt="Las Palmas" />
+              <img src={lpa2} alt="Las Palmas" />
+            </div>
+
+            <p>
+              The city represents a strategic and inspiring hub for academic
+              exchange, fostering interdisciplinary dialogue in a unique
+              geographical context.
+            </p>
+          </section>
+        );
+
+      case "committees":
+        return (
+          <section className="section">
+            <h2>Committees</h2>
+            <p>Organising and scientific committees will be announced soon.</p>
+          </section>
+        );
+
+      case "abstracts":
+        return (
+          <section className="section">
+            <h2>Call for Abstracts</h2>
+
+            <ul>
+              <li>Maximum 300 words</li>
+              <li>Language: English</li>
+              <li>Include title, authors, affiliations and keywords</li>
+              <li>Deadline: 15 June 2026</li>
+              <li>Notification: 30 June 2026</li>
+            </ul>
           </section>
         );
 
       case "registration":
         return (
           <section className="section registration-section">
-            <div className="section-heading center">
-              <h2>Registration & Fees</h2>
-              <p className="section-intro">
-                Registration is now open. Participants must complete the form
-                and proceed with payment.
-              </p>
-            </div>
+            <h2>Registration & Fees</h2>
 
-            <div className="registration-box">
-              <h3>Registration Categories</h3>
+            <table className="fees-table">
+              <tbody>
+                <tr>
+                  <td>Early Bird</td>
+                  <td>€130</td>
+                </tr>
+                <tr>
+                  <td>Regular</td>
+                  <td>€150</td>
+                </tr>
+                <tr>
+                  <td>Late</td>
+                  <td>€170</td>
+                </tr>
+              </tbody>
+            </table>
 
-              <table className="fees-table">
-                <thead>
-                  <tr>
-                    <th>Category</th>
-                    <th>Fee</th>
-                    <th>Deadline</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Early Bird</td>
-                    <td>€130</td>
-                    <td>Until 30 September 2026</td>
-                  </tr>
-                  <tr>
-                    <td>Regular</td>
-                    <td>€150</td>
-                    <td>Until 15 November 2026</td>
-                  </tr>
-                  <tr>
-                    <td>Late</td>
-                    <td>€170</td>
-                    <td>After 16 November 2026</td>
-                  </tr>
-                </tbody>
-              </table>
+            <p>
+              The fee includes sessions, materials, coffee breaks and dinner.
+            </p>
 
-              <p className="included">
-                <strong>The registration fee includes:</strong> access to all
-                sessions, materials, coffee breaks and the social dinner.
-              </p>
+            <p>
+              Participants may attend with one accompanying guest. In such cases,
+              the fee will be doubled.
+            </p>
 
-              <p className="note">
-                Participants are welcome to attend with one accompanying guest.
-                Please note that, in this case, the registration fee will be
-                doubled.
-              </p>
+            <a
+              href="https://forms.gle/KqMNdrhZPXz9kGMY8"
+              target="_blank"
+              className="btn-primary"
+            >
+              Register Now
+            </a>
+          </section>
+        );
 
-              <div className="registration-buttons">
-                <a
-                  href="https://forms.gle/KqMNdrhZPXz9kGMY8"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="btn-primary"
-                >
-                  Register Now
-                </a>
-
-                <a
-                  href="#"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="btn-secondary"
-                >
-                  Proceed to Payment
-                </a>
-              </div>
-
-              <div className="payment-info">
-                <h3>Payment Information</h3>
-                <p>
-                  Payment should be completed after submitting the registration
-                  form. Please include your full name in the payment reference.
-                </p>
-              </div>
-            </div>
+      case "contact":
+        return (
+          <section className="section">
+            <h2>Contact</h2>
+            <p>alessandro.indelicato@ulpgc.es</p>
+            <img src={contactImage} alt="contact" />
           </section>
         );
 
       default:
-        return <div className="section">Coming soon...</div>;
+        return null;
     }
   };
 
@@ -215,7 +226,7 @@ function App() {
 
       <footer className="footer-pro">
         <div className="container">
-          ULPGC · ERUA · 7–8 December 2026 · Las Palmas
+          ULPGC · 7–8 December 2026 · Las Palmas
         </div>
       </footer>
     </div>
