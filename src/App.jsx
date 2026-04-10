@@ -515,7 +515,7 @@ function App() {
 
               <div className="registration-buttons">
                 <a
-                  href="https://forms.gle/https://docs.google.com/forms/d/1s9sx7TdAVFEZBY4VXcyXBA51ZWKAerNKe00ydSk9Xik/edit"
+                  href="https://forms.gle/https://https://docs.google.com/forms/d/e/1FAIpQLSe19RuLJLM1fd1leYqlaWHIoi3VTgzzmUorJ7YLujr4Ls8ojw/viewform?usp=header"
                   target="_blank"
                   rel="noreferrer"
                   className="btn-primary registration-link"
