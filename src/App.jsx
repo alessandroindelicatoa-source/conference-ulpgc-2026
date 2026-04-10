@@ -135,9 +135,7 @@ function App() {
               <div className="hero-copy">
                 <div className="eyebrow">ERUA Workshop · ULPGC · Las Palmas · 2026</div>
 
-                <h1 className="hero-title">
-                  Climate Change, Environmental Migration and Sustainable Development
-                </h1>
+                
 
                 <p className="lead">
                   A high-level international conference dedicated to one of the most
@@ -584,9 +582,7 @@ function App() {
             <div className="site-title">
               Migration, Climate and Social Transformation Conference
             </div>
-            <div className="site-subtitle">
-              Climate Change, Environmental Migration and Sustainable Development
-            </div>
+            
           </div>
         </div>
       </header>
@@ -609,7 +605,7 @@ function App() {
 
       <footer className="footer-pro">
         <div className="container footer-text">
-          Climate Change, Environmental Migration and Sustainable Development ·
+          
           ULPGC · ERUA Workshop · Las Palmas de Gran Canaria
         </div>
       </footer>
