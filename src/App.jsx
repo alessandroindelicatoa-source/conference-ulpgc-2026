@@ -110,9 +110,6 @@ function App() {
               <div className="hero-copy">
                 <div className="eyebrow">ERUA Workshop · ULPGC · Las Palmas · 2026</div>
 
-                <h1>
-                  Climate Change, Environmental Migration and Sustainable Development
-                </h1>
 
                 <p className="lead">
                   A high-level international conference dedicated to one of the
