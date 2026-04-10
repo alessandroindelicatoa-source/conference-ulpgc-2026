@@ -146,7 +146,7 @@ function App() {
 
                   <div className="info-item">
                     <span>Dates</span>
-                    <strong>5–6 December 2026</strong>
+                    <strong>7–8 December 2026</strong>
                   </div>
 
                   <div className="info-item">
