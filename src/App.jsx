@@ -515,7 +515,7 @@ function App() {
 
               <div className="registration-buttons">
                 <a
-                  href="https://forms.gle/TU-LINK-DE-GOOGLE-FORM"
+                  href="https://forms.gle/https://docs.google.com/forms/d/1s9sx7TdAVFEZBY4VXcyXBA51ZWKAerNKe00ydSk9Xik/edit"
                   target="_blank"
                   rel="noreferrer"
                   className="btn-primary registration-link"
@@ -597,10 +597,7 @@ function App() {
           <div>
             <div className="site-title">
               Migration, Climate and Social Transformation Conference
-            </div>
-            <div className="site-subtitle">
-              Climate Change, Environmental Migration and Sustainable Development
-            </div>
+            
           </div>
         </div>
       </header>
