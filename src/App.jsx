@@ -345,13 +345,13 @@ function App() {
             <div className="grid two">
               <div className="card text-card">
                 <h3>Submission Guidelines</h3>
-                <ul className="elegant-list">
-                  <li>Maximum 300 words</li>
-                  <li>Language: English</li>
-                  <li>Include title, authors, affiliations and keywords</li>
-                  <li>Deadline: 15 June 2026</li>
-                  <li>Notification of acceptance: 30 June 2026</li>
-                </ul>
+                <ul className="elegant-list left-list">
+  		<li>Maximum 300 words</li>
+  		<li>Language: English</li>
+  		<li>Include title, authors, affiliations and keywords</li>
+  		<li>Deadline: 15 June 2026</li>
+  		<li>Notification of acceptance: 30 June 2026</li>
+		</ul>
               </div>
 
               <div className="card form-card">
@@ -466,7 +466,7 @@ function App() {
               Migration, Climate and Social Transformation Conference
             </div>
             <div className="site-subtitle">
-              Climate Change, Environmental Migration and Sustainable Development
+              
             </div>
           </div>
         </div>
