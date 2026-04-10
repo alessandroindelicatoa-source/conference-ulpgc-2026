@@ -145,9 +145,9 @@ function App() {
                   <div className="panel-title">Conference Information</div>
 
                   <div className="info-item">
-                    <span>Dates</span>
-                    <strong>7–8 December 2026</strong>
-                  </div>
+  			<span>Dates</span>
+  			<strong>7–8 December 2026</strong>
+		</div>
 
                   <div className="info-item">
                     <span>Venue</span>
